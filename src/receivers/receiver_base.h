@@ -63,17 +63,17 @@ public:
 
     /* the rest is optional */
 
-    /* Noise blanker */
+    /* Noise blanker 噪声抑制 */
     virtual bool has_nb();
     virtual void set_nb_on(int nbid, bool on);
     virtual void set_nb_threshold(int nbid, float threshold);
 
-    /* Squelch parameter */
+    /* Squelch parameter 噪声抑制 */
     virtual bool has_sql();
     virtual void set_sql_level(double level_db);
     virtual void set_sql_alpha(double alpha);
 
-    /* AGC */
+    /* AGC 自动增益控制？ */
     virtual bool has_agc();
     virtual void set_agc_on(bool agc_on);
     virtual void set_agc_hang(bool use_hang);
@@ -82,12 +82,12 @@ public:
     virtual void set_agc_decay(int decay_ms);
     virtual void set_agc_manual_gain(int gain);
 
-    /* FM parameters */
+    /* FM parameters fm频率参数 */
     virtual bool has_fm();
     virtual void set_fm_maxdev(float maxdev_hz);
     virtual void set_fm_deemph(double tau);
 
-    /* AM parameters */
+    /* AM parameters am幅度参数？ */
     virtual bool has_am();
     virtual void set_am_dcr(bool enabled);
 
