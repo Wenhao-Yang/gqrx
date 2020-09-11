@@ -63,7 +63,7 @@ nbrx::nbrx(float quad_rate, float audio_rate)
 
     demod = demod_fm;
     /* nbrx --> iq_resamppler --> nb_rx --> rx_filter --> rx_meter
-                                       --> gr_squelch --> rx_agc --> demod_fm --> ...
+                                                      --> gr_squelch --> rx_agc --> demod_fm --> ...
     */
     connect(self(), 0, iq_resamp, 0);
     connect(iq_resamp, 0, nb, 0);
