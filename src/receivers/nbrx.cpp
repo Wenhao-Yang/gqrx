@@ -62,6 +62,9 @@ nbrx::nbrx(float quad_rate, float audio_rate)
     }
 
     demod = demod_fm;
+    /* nbrx --> iq_resamppler --> nb_rx --> rx_filter --> rx_meter
+                                       --> gr_squelch --> rx_agc --> demod_fm --> ...
+    */
     connect(self(), 0, iq_resamp, 0);
     connect(iq_resamp, 0, nb, 0);
     connect(nb, 0, filter, 0);
@@ -71,7 +74,9 @@ nbrx::nbrx(float quad_rate, float audio_rate)
     connect(agc, 0, demod, 0);
 
     if (audio_rr0)
-    {
+    {   
+        /* demod_fm --> audio_resampler
+        */
         connect(demod, 0, audio_rr0, 0);
 
         connect(audio_rr0, 0, self(), 0); // left  channel
