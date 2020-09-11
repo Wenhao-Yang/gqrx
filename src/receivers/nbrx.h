@@ -108,8 +108,8 @@ public:
 
 private:
     bool   d_running;          /*!< Whether receiver is running or not. */
-    float  d_quad_rate;        /*!< Input sample rate. */
-    int    d_audio_rate;       /*!< Audio output rate. */
+    float  d_quad_rate;        /*!< Input sample rate. 采样率 */
+    int    d_audio_rate;       /*!< Audio output rate. 输出音频频率 */
 
     nbrx_demod                d_demod;    /*!< Current demodulator. */
 
