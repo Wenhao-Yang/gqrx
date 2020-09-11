@@ -35,6 +35,7 @@ static const int MAX_OUT = 1; /* Maximum number of output streams. */
 /*
  * Create a new instance of rx_filter and return
  * a boost shared_ptr. This is effectively the public constructor.
+ * 高低频的带通复数滤波器
  */
 rx_filter_sptr make_rx_filter(double sample_rate, double low, double high, double trans_width)
 {
@@ -55,7 +56,7 @@ rx_filter::rx_filter(double sample_rate, double low, double high, double trans_w
         d_low = -0.95*sample_rate/2.0;
     if (high > 0.95*sample_rate/2.0)
         d_high = 0.95*sample_rate/2.0;
-
+    /* 高低频的值和采样率/2 之间的关系 */
     /* generate taps */
     d_taps = gr::filter::firdes::complex_band_pass(1.0, d_sample_rate, d_low, d_high, d_trans_width);
 
