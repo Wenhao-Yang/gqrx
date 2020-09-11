@@ -98,6 +98,7 @@ int rx_nb_cc::work(int noutput_items,
  *
  * Noise blanker 1 is the first noise blanker in the processing chain.
  * It is intended to reduce the effect of impulse type noise.
+ * Noise blanker 1 用于减少脉冲噪声，短时类型的
  *
  * FIXME: Needs different constants for higher sample rates?
  */
@@ -136,7 +137,8 @@ void rx_nb_cc::process_nb1(gr_complex *buf, int num)
  *
  * Noise blanker 2 is the second noise blanker in the processing chain.
  * It is intended to reduce non-pulse type noise (i.e. longer time constants).
- *
+ * Noise blanker 2 用于减少非脉冲噪声，长时类型的
+ * 
  * FIXME: Needs different constants for higher sample rates?
  */
 void rx_nb_cc::process_nb2(gr_complex *buf, int num)
